@@ -1,6 +1,15 @@
 # Folders
 */data/*
 
+.gitignore
+/etc
+/Include
+/Lib
+/Scripts
+/share
+activate.bat
+pyvenv.cfg
+
 # Local History for Visual Studio Code
 .history/
  
