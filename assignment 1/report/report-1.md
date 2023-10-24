@@ -86,12 +86,48 @@ We get the following images:
 
 ### Subtask e
 
-Wow true
+When applying a log transform to an image with a large variance in pixel intensities, the dynamic range is compressed or reduced.
+
+The log transform function, $s = c \cdot \log(1 + r)$, is a nonlinear transformation that enhances the lower-intensity values more than the higher-intensity values. This means that for higher-intensity pixels, the compression effect is more pronounced.
+
+In other words:
+
+- Low-intensity pixels are stretched out more by the logarithmic transformation.
+- High-intensity pixels are compressed closer together.
 
 ### Subtask f
 
-Wow true
+We perform spatial convolution by hand on the same image as **Subtask d**. The convolution kernel is shown below:
+$$K_\text{Sobel} = \begin{bmatrix*}
+  1&0&-1\\
+  2&0&-2\\
+  1&0&-1
+\end{bmatrix*}$$
 
+We will pad the image by reflecting the edges which is the image to the right in the picture below:
+
+![](img/task1f_boundaries.png)
+
+We can now perform the convolution operation by doing element wise multiplication + sum between the kernel and a subset of the image, then moving the kernel and doing it again. For this to be convolution and no correlation we have to flip the kernel in both directions:
+
+```python
+# perform convolution (flip the kernel in both directions)
+for row in range (N):
+    for column in range(M):
+        convoluted_image[row,column] = np.sum(np.multiply(kernel[::-1,::-1], padded_image[row:row+n,column:column+m]))
+```
+
+The output (convolued) image is then:
+
+$$\begin{bmatrix}
+  17  &  13  &  -12 &  -1  &     7\\
+  3   &   3  &  -1  &  -9  &  -8  \\
+  -4  &   4  &  9   & -22  &   -23\\
+\end{bmatrix}$$
+
+We can plot the original and the convoluted images side by side to compare:
+
+![](img/convoluted_image.png)
 
 ## Task 2
 
