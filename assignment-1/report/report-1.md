@@ -159,15 +159,19 @@ The Sobel kernel acts as a vertical edge detector and the approximated gaussian 
 
 ### Subtask a
 
-Truly amazing
+In order to be represented by a single layer neural network a function has to be linearly separable. This is the case for AND, OR and NOT but not for XOR, NOR and NAND which would require multiple layers.
 
 ### Subtask b
 
-Truly amazing
+A hyperparameter is a parameter of a neural network that is not optimized during the learning phase.
+
+For example the learning rate is a hyper-parameter, the size of the kernel in a convolution network is a hyper-paramter (while the weighs in the kernel are learnable parameters).
 
 ### Subtask c
 
-Truly amazing
+Softmax is a function that takes as input a vector of real numbers and returns a normalized probability distribution. This function is differentiable which is crucial for training the neural network with gradient descend optimization.
+
+It would follow that probabilities are not very useful for other tasks such as regression. Additionally, softmax takes the exponential of the values before calculating the distribution which is useful in classification as networks will correct themselves quicker when misclassifying.
 
 ### Subtask d
 
