@@ -16,6 +16,7 @@ tqdm = "*"
 ipykernel = "*"
 matplotlib = "*"
 numpy = "*"
+pylance = "*"
 
 [dev-packages]
 
