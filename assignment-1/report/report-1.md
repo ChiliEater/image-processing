@@ -18,16 +18,17 @@ Header:
   - [Task 2](#task-2)
     - [Subtask a](#subtask-a-1)
     - [Subtask b](#subtask-b-1)
+    - [Subtask c](#subtask-c-1)
   - [Task 3](#task-3)
     - [Subtask a](#subtask-a-2)
     - [Subtask b](#subtask-b-2)
-    - [Subtask c](#subtask-c-1)
+    - [Subtask c](#subtask-c-2)
     - [Subtask d](#subtask-d-1)
     - [Subtask e](#subtask-e-1)
   - [Task 4](#task-4)
     - [Subtask a](#subtask-a-3)
     - [Subtask b](#subtask-b-3)
-    - [Subtask c](#subtask-c-2)
+    - [Subtask c](#subtask-c-3)
     - [Subtask d](#subtask-d-2)
 
 
@@ -145,6 +146,14 @@ The duck knight rises...
 ![](../image_solutions/duck_intense.jpeg)
 
 evil duck
+
+### Subtask c
+
+By performing the convolution with the two provided kernels we get the following images :
+
+![](img/duck_comparison.png)
+
+The Sobel kernel acts as a vertical edge detector and the approximated gaussian kernel blurs the image as expected.
 
 ## Task 3
 
