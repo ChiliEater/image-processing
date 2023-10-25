@@ -175,7 +175,36 @@ It would follow that probabilities are not very useful for other tasks such as r
 
 ### Subtask d
 
-Truly amazing
+To perform forward pass we simply need to compute the values with the correct operations:
+
+- $a_1=w_1x_1$
+- $c_1=a_1+a_2+b_1$
+- $\hat y=\max(c_1,c_2)$
+- $C = \frac{1}{2}(y-\hat y)^2$
+
+This gives the output $y=2$ and $C=1/2$
+
+Then to perform backwards pass we need to compute the derivative of the cost function with respect to each variable given than the target value is $y=1$.
+
+$$
+\hat y'=\frac{\partial C}{\partial \hat y} = \frac{\partial}{\partial \hat y}\left(\frac{1}{2}(y^2+\hat y^2-2y\hat y)\right)=\hat y-y=1
+$$
+
+It is then possible to use the chain rule to compute all the other derivatives. Here we provide the example for $c_1'$:
+
+$$
+c_1'=\frac{\partial C}{\partial c_1}=\frac{\partial C}{\partial \hat y}\frac{\partial \hat y}{\partial c_1}
+$$
+
+In this case we have $\hat y = \max(c_1,c_2) = c_1$ which leads to:
+
+$$
+\frac{\partial \hat y}{\partial c_1}=1\qquad\qquad
+\frac{\partial \hat y}{\partial c_2}=0
+$$
+
+This means that all the derivatives in the "lower branch" are going to be $0$ and only the top branch needs to be updated.
+
 
 ### Subtask e
 
