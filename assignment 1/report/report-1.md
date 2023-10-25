@@ -136,13 +136,15 @@ We can plot the original and the convoluted images side by side to compare:
 
 ### Subtask a
 
-True!
+![](../image_solutions/duck_greyscale.jpeg)
+
+The duck knight rises...
 
 ### Subtask b
 
-Misinformed!
+![](../image_solutions/duck_intense.jpeg)
 
-
+evil duck
 
 ## Task 3
 
