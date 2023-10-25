@@ -5,10 +5,11 @@ output_dir = pathlib.Path("image_solutions")
 output_dir.mkdir(exist_ok=True)
 
 
-im = read_im(pathlib.Path("images", "lake.jpg"))
+im = read_im(pathlib.Path("images", "duck.jpeg"))
 plt.imshow(im)
 
 
+greayscale_weights = [0.212, 0.7152, 0.0722]
 def greyscale(im):
     """ Converts an RGB image to greyscale
 
@@ -19,11 +20,11 @@ def greyscale(im):
         im ([type]): [np.array of shape [H, W]]
     """
 
-    return im
+    return im[:, :, 0] * greayscale_weights[0] + im[:, :, 1] * greayscale_weights[1] + im[:, :, 2] * greayscale_weights[2]
 
 
 im_greyscale = greyscale(im)
-save_im(output_dir.joinpath("lake_greyscale.jpg"), im_greyscale, cmap="gray")
+save_im(output_dir.joinpath("duck_greyscale.jpg"), im_greyscale, cmap="gray")
 plt.imshow(im_greyscale, cmap="gray")
 
 
@@ -36,5 +37,8 @@ def inverse(im):
     Returns:
         im ([type]): [np.array of shape [H, W]]
     """
-    # YOUR CODE HERE
-    return im
+    return 1.0 - im[:, :]
+
+im_inverse = inverse(im_greyscale)
+save_im(output_dir.joinpath("duck_intense.jpeg"), im_inverse, cmap="gray")
+plt.imshow(im_inverse, cmap="gray")
