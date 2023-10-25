@@ -108,9 +108,12 @@ We will pad the image by reflecting the edges which is the image to the right in
 
 ![](img/task1f_boundaries.png)
 
-We can now perform the convolution operation by doing element wise multiplication + sum between the kernel and a subset of the image, then moving the kernel and doing it again. For this to be convolution and no correlation we have to flip the kernel in both directions:
+We can now perform the convolution operation by doing element wise multiplication + sum between the kernel and a subset of the image, then moving the kernel and doing it again. For this to be convolution (and not correlation) we have to flip the kernel in both directions:
 
 ```python
+N,M = np.shape(image)       # image dimensions
+n,m = np.shape(kernel)      # kernel dimensions
+
 # perform convolution (flip the kernel in both directions)
 for row in range (N):
     for column in range(M):
