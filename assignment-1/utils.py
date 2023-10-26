@@ -45,10 +45,10 @@ def compute_loss_and_accuracy(dataloader, model, loss_function):
     return loss_avg, accuracy
 
 
-def plot_loss(loss_dict, label):
+def plot_loss(loss_dict, label, line_width):
     global_steps = list(loss_dict.keys())
     loss = list(loss_dict.values())
-    plt.plot(global_steps, loss, label=label)
+    plt.plot(global_steps, loss, label=label, linewidth=line_width)
 
 
 def read_im(filepath):

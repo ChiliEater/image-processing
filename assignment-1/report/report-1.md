@@ -47,6 +47,8 @@ Quantization is the process of giving discrete numerical values to each of the s
 
 An image has high contrast if the histogram is well spread out across the entire range of possible values.
 
+<div style="break-after:page"></div>
+
 ### Subtask d
 
 First we have to define the image in python:
@@ -96,6 +98,8 @@ In other words:
 - Low-intensity pixels are stretched out more by the logarithmic transformation.
 - High-intensity pixels are compressed closer together.
 
+<div style="break-after:page"></div>
+
 ### Subtask f
 
 We perform spatial convolution by hand on the same image as **Subtask d**. The convolution kernel is shown below:
@@ -133,6 +137,8 @@ We can plot the original and the convoluted images side by side to compare:
 
 ![](img/convoluted_image.png)
 
+<div style="break-after:page"></div>
+
 ## Task 2
 
 ### Subtask a
@@ -140,6 +146,8 @@ We can plot the original and the convoluted images side by side to compare:
 ![](../image_solutions/duck_greyscale.jpeg)
 
 The duck knight rises...
+
+<div style="break-after:page"></div>
 
 ### Subtask b
 
@@ -154,6 +162,8 @@ By performing the convolution with the two provided kernels we get the following
 ![](img/duck_comparison.png)
 
 The Sobel kernel acts as a vertical edge detector and the approximated gaussian kernel blurs the image as expected.
+
+<div style="break-after:page"></div>
 
 ## Task 3
 
@@ -172,6 +182,8 @@ For example the learning rate is a hyper-parameter, the size of the kernel in a 
 Softmax is a function that takes as input a vector of real numbers and returns a normalized probability distribution. This function is differentiable which is crucial for training the neural network with gradient descend optimization.
 
 It would follow that probabilities are not very useful for other tasks such as regression. Additionally, softmax takes the exponential of the values before calculating the distribution which is useful in classification as networks will correct themselves quicker when misclassifying.
+
+<div style="break-after:page"></div>
 
 ### Subtask d
 
@@ -205,29 +217,49 @@ $$
 
 This means that all the derivatives in the "lower branch" are going to be $0$ and only the top branch needs to be updated.
 
+<div style="break-after:page"></div>
 
 ### Subtask e
 
-Truly amazing
+![](img/updated-weights.png)
 
-
+<div style="break-after:page"></div>
 
 ## Task 4
 
 ### Subtask a
 
-Truly amazing
+![](img/task4a.png)
 
 ### Subtask b
 
-Truly amazing
+![](img/task4b.png)
+
+The shape of the weights resemble the shape of the digits. Some are very far off, though.
 
 ### Subtask c
 
-Truly amazing
+![](img/task4c.png)
+
+We can see that our new model performs considerably worse as its loss is a lot higher:
+
+Normalized Test loss: 0.2960397264902379. Normalized Test accuracy: 0.9131  
+Learner Test loss: 2.1549244224104265. Learner Test accuracy: 0.903  
+
+The accuracy stays mostly the same.
+
+<div style="break-after:page"></div>
 
 ### Subtask d
 
-Truly amazing
+![](img/task4d-1.png)
+
+The ReLU model has more layers so it can learn more features than the other approaches. It also has a lower loss and better accuracy.
+
+![](img/task4d-2.png)
+
+For fun, we trained the models for 5 more epochs. This resulted in the ReLU model plateauing much later than its peers thanks to its more complex architecture.
+
+<p style="opacity: 0.05;">🗿🗿🗿🗿🗿🗿🗿</p>
 
 <div style="break-after:page"></div>
