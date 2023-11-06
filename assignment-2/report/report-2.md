@@ -34,23 +34,80 @@ Header:
 
 ### Subtask a
 
-TEXT
+Given that the kernel size is $7\times7$ with a stride of 1, if we want to have the output shape the same height and width as the input shape then the padding should be set to $3$
 
 ### Subtask b
 
-TEXT
+The input shape is $512\times512$. The output shape of the first cnovolutionnal layer is $506\times506$. Assuming no padding, square kernels and a stride of 1, this means that the kernel size is:
+
+$$K_W=K_H=(512+2*0)/1+1-506=7$$
+
+Since there are 12 feature maps in the first layer, we can conclude that the first layer has the following parameters:
+
+- Kernel size : $7\times7$
+- Stride : $1$
+- Padding : $0$
+- Number of filters : $12$
 
 ### Subtask c
 
-TEXT
+We now perform a subsampling of neighborhood $2\times2$ with a stride of 2. This means that the image dimensions will be divided by 2. Assuming that the input image has dimensions $506\times506$, the output image will have dimensions $253\times253$
 
 ### Subtask d
 
-TEXT
+Now the input shape is $253\times253$ and we use $3\times3$ kernels with no padding and a stride of 1. The output shape will be :
+
+$$W=H = (253-3+2\times0)+1=251$$
 
 ### Subtask e
 
-TEXT
+Assuming the input shape is $32\times 32\times 1$
+
+- Layer 1: Conv2D (kernel size=5, stride=1, padding=2)
+  - $n_{params}=32\times\big(\underbrace{(5\times5\times1)}_\text{weights}+\underbrace{1\vphantom{)}}_\text{bias}\big)=832$
+  - output dim : $W=H= (32-5+2\times 2)/1+1 = 32$
+  - output shape:$(W=32,H=32,C=32)$
+
+- Layer 2: MaxPool2D (kernel size=2, stride=2) 
+  - $n_{params}=0$
+  - output dim : $W=H= 32/2 = 16$
+  - output shape:$(W=16,H=16,C=32)$
+
+- Layer 3: Conv2D (kernel size=3, stride=1, padding=1) 
+  - $n_{params}=64\times\big(\underbrace{(3\times3\times32)}_\text{weights}+\underbrace{1\vphantom{)}}_\text{bias}\big)=18496$
+  - output dim : $W=H= (16-3+2\times 1)/1+1 = 16$
+  - output shape:$(W=16,H=16,C=64)$
+
+- Layer 4: MaxPool2D (kernel size=2, stride=2) 
+  - $n_{params}=0$
+  - output dim : $W=H= 16/2 = 8$
+  - output shape:$(W=8,H=8,C=64)$
+  
+- Layer 5: Conv2D (kernel size=3, stride=1, padding=1) 
+  - $n_{params}=128\times\big(\underbrace{(3\times3\times64)}_\text{weights}+\underbrace{1\vphantom{)}}_\text{bias}\big)=73856$
+  - output dim : $W=H= (8-3+2\times 1)/1+1 = 8$
+  - output shape:$(W=8,H=8,C=128)$
+
+- Layer 6: MaxPool2D (kernel size=2, stride=2) 
+  - $n_{params}=0$
+  - output dim : $W=H= 8/2 = 4$
+  - output shape:$(W=4,H=4,C=128)$
+
+- Layer 7: Flatten
+  - $n_{params}=0$
+  - output shape:$(W=1,H=2048,C=1)$
+  
+- Layer 8: FullyConnected
+    - $n_{params}=64\times\big(\underbrace{2048}_\text{input}+\underbrace{1}_\text{bias}\big)=131136$
+    - output shape:$(W=1,H=64,C=1)$
+
+- Layer 9: FullyConnected
+    - $n_{params}=10\times\big(\underbrace{64}_\text{input}+\underbrace{1}_\text{bias}\big)=650$
+    - output shape:$(W=1,H=10,C=1)$
+
+Hence, the total number of learnable parameters is:
+
+$$\text{total parameters}=\sum_{layers}n_{params}=224970$$
 
 ## Task 2
 
