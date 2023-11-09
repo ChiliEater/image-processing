@@ -113,19 +113,30 @@ $$\text{total parameters}=\sum_{layers}n_{params}=224970$$
 
 ### Subtask a
 
-TEXT
+Final Test loss: 0.03748996451569003. Final Test accuracy: 0.9879
+
+![](img/2a.png)
+
+There is no evidence of overfittin as the train loss and test loss mostly overlap on the graph.
 
 ### Subtask b
 
-TEXT
+Final Adam Test loss: 0.03565496312053169. Final Adam Test accuracy: 0.9856
+Final SGD Test loss: 0.042829393994049794. Final SGD Test accuracy: 0.9856
+
+![](img/2b.png)
 
 ### Subtask c
 
-TEXT
+![](img/2c.png)
 
 ### Subtask d
 
-TEXT
+1. Detects vertical edges
+2. Detects diagonal edges
+3. Detects flat green areas
+4. Detects horizontal edges
+5. Detects flat blue areas
 
 ## Task 3
 

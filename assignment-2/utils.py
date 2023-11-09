@@ -59,12 +59,14 @@ def plot_loss(loss_dict, label):
     plt.plot(global_steps, loss, label=label)
 
 
-def to_cuda(elements):
+def to_cuda(elements) -> torch.nn.Sequential:
     """
     Transfers all parameters/tensors to GPU memory (cuda) if there is a GPU available
     """
     if not torch.cuda.is_available():
+        #print("CUDA is not available!")
         return elements
+    #print("CUDA available!")
     if isinstance(elements, tuple) or isinstance(elements, list):
         return [x.cuda() for x in elements]
     return elements.cuda()

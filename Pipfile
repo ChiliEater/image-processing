@@ -10,7 +10,7 @@ name = "downloadpytorch"
 
 [packages]
 torch = "*"
-torchvision = {version = "*", index = "downloadpytorch"}
+torchvision = "*"
 scikit-image = "*"
 tqdm = "*"
 ipykernel = "*"
