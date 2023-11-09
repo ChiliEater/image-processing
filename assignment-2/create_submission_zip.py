@@ -20,8 +20,8 @@ def query(question, options):
 
 # If you create other files, edit this list to include them in the .zip file.
 files_to_include = {
-    "task2": [".py", ".ipynb"],
-    "task2c": [".py", ".ipynb"],
+    "task2": [".ipynb"],
+    "task2c": [".ipynb"],
     "task4a": [".py", ".ipynb"],
     "task4b": [".py", ".ipynb"],
     "task4c": [".py", ".ipynb"],

@@ -142,32 +142,41 @@ Final SGD Test loss: 0.042829393994049794. Final SGD Test accuracy: 0.9856
 
 ### Subtask a
 
-TEXT
+- 1a → 2e
+- 1b → 2c
+- 1c → 2f
+- 1d → 2b
+- 1e → 2d
+- 1f → 2a
+
+If the frequency is around the horizontal axis, the points are also going to be spread arount the horizontal axis in the frequency domain. Additionally, The closer the points are together, the lower the frequency is in the spacial domain.
 
 ### Subtask b
 
-TEXT
+Low-pass filters cut off high frequencies, high-pass filter cut off low frequencies
 
 ### Subtask c
 
-TEXT
+*a* is a high-pass filter, *b* is a low-pass filter. *b* must be a low-pass filter because only the center of the image is white. Since this is the center of the frequency domain, only low frequencies reside here. As a result, the other one is a high-pass filter for similar reasons. 
 
 ## Task 4
 
 ### Subtask a
 
-TEXT
+![](img/4a-1.png)
+
+![](img/4a-2.png)
 
 ### Subtask b
 
-TEXT
+![](img/4b.png)
 
 ### Subtask c
 
-TEXT
+![](img/4c.png)
 
 ### Subtask d
 
-TEXT
+![](img/4d.png)
 
 <div style="break-after:page"></div>
