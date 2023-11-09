@@ -17,6 +17,7 @@ ipykernel = "*"
 matplotlib = "*"
 numpy = "*"
 pylance = "*"
+torchinfo = "*"
 
 [dev-packages]
 

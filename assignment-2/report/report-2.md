@@ -88,6 +88,8 @@ Assuming the input shape is $32\times 32\times 1$
   - output dim : $W=H= (8-3+2\times 1)/1+1 = 8$
   - output shape:$(W=8,H=8,C=128)$
 
+<div style="break-after:page"></div>
+
 - Layer 6: MaxPool2D (kernel size=2, stride=2) 
   - $n_{params}=0$
   - output dim : $W=H= 8/2 = 4$
@@ -109,6 +111,8 @@ Hence, the total number of learnable parameters is:
 
 $$\text{total parameters}=\sum_{layers}n_{params}=224970$$
 
+<div style="break-after:page"></div>
+
 ## Task 2
 
 ### Subtask a
@@ -117,11 +121,12 @@ Final Test loss: 0.03748996451569003. Final Test accuracy: 0.9879
 
 ![](img/2a.png)
 
-There is no evidence of overfittin as the train loss and test loss mostly overlap on the graph.
+There is no evidence of overfitting as the train loss and test loss mostly overlap on the graph.
 
 ### Subtask b
 
 Final Adam Test loss: 0.03565496312053169. Final Adam Test accuracy: 0.9856
+
 Final SGD Test loss: 0.042829393994049794. Final SGD Test accuracy: 0.9856
 
 ![](img/2b.png)
@@ -137,6 +142,8 @@ Final SGD Test loss: 0.042829393994049794. Final SGD Test accuracy: 0.9856
 3. Detects flat green areas
 4. Detects horizontal edges
 5. Detects flat blue areas
+
+<div style="break-after:page"></div>
 
 ## Task 3
 
@@ -167,6 +174,8 @@ Low-pass filters cut off high frequencies, high-pass filter cut off low frequenc
 
 ![](img/4a-2.png)
 
+<div style="break-after:page"></div>
+
 ### Subtask b
 
 ![](img/4b.png)
@@ -174,6 +183,8 @@ Low-pass filters cut off high frequencies, high-pass filter cut off low frequenc
 ### Subtask c
 
 ![](img/4c.png)
+
+<div style="break-after:page"></div>
 
 ### Subtask d
 
