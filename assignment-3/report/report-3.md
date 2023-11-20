@@ -28,23 +28,56 @@ Header:
 
 ### Subtask 1a
 
-AAAAAAAAAAAAAa
+**Opening** is a combination of *erosion* followed by *dilation*.
+
+Erosion is applied to the image first, which erodes away the boundaries of objects in the image. Then, dilation is performed, which expands the remaining regions but not to the extent of the original size. It smoothes contours, breaks narrow bridges, eliminates small protrusions, and separates touching objects.
+
+Applying opening operations successively tends to remove finer details, smaller objects, and finer structures in the image. It keeps eliminating smaller elements and smoothing contours with each iteration.
+
+**Closing** is a combination of *dilation* followed by *erosion*.
+
+Dilation is applied first, which expands the boundaries of objects in the image. Then, erosion is performed, which reduces the size of the expanded regions but not to the extent of the original size. It fills small holes, joins broken contours, and fuses nearby objects.
+
+Successive closing operations tend to fill in smaller holes, bridges small gaps between objects, and merge closer objects. Each iteration tends to result in more significant connectivity between nearby structures.
+
 
 ### Subtask 1b
 
-AAAAAAAAAAAAAa
+The main goal of smoothing is to reduce the impact of noise and irregularities between pixel values. It usually involves a low-pass filter that helps to enhance actual edges by reducing the high-frequency components in the image.
+
+Real edges represent significant changes in pixel intensity, and smoothing can highlight these changes by reducing the effect of minor fluctuations in intensity, ensuring that the detected edges represent actual features in the image.
 
 ### Subtask 1c
 
-AAAAAAAAAAAAAa
+Hysteresis thresholding involves the utilization of two thresholds: a high and a low threshold.
+
+Initially, pixels with intensity gradient magnitudes above the high threshold are classified as edge pixels, while those below the low threshold are dismissed as non-edge pixels.
+
+Pixels exhibiting gradient magnitudes between these thresholds are examined for their connectivity to confirmed edge pixels. If a pixel (between the thresholds) is connected to an established edge pixel (above the high threshold) through neighboring pixels, it is also marked as an edge pixel.
+
 
 ### Subtask 1d
 
-AAAAAAAAAAAAAa
+The dual thresholding strategy creates a "hysteresis" effect (a "memory" effect), ensuring weaker edges connected to stronger edge structures are retained while filtering out isolated noise responses.
+
+This approach of double thresholding is more robust to changes in noise and in edge strength than a single threshold. It allows to have a better edge continuity while ensuring a reduction of false positives. 
 
 ### Subtask 1e
 
-AAAAAAAAAAAAAa
+To perform the dilation of the given image by the given structiring element, we need to place the center of the structuring element $B$ over each `1` pixel in the image. Then, expand the `1` pixels based on the structuring element by setting the pixels above and below to `1` accordingly.
+
+We get the following image
+```
+0	1	1	1	1	1	0
+1	1	1	1	1	1	1
+1	1	1	0	1	1	1
+1	0	1	0	1	0	1
+1	1	1	0	1	1	1
+1	1	1	1	1	1	1
+0	1	1	1	1	1	0
+```
+
+![](img\dilated_image.png)
 
 
 ## Task 2
