@@ -7,16 +7,14 @@ Header:
 
 # Image Processing 3
 
-![](img/geck.jpg)
-
 - [Image Processing 3](#image-processing-3)
-  - [Task 1](#task-1)
+  - [Task 1: Theory](#task-1-theory)
     - [Subtask 1a](#subtask-1a)
     - [Subtask 1b](#subtask-1b)
     - [Subtask 1c](#subtask-1c)
     - [Subtask 1d](#subtask-1d)
     - [Subtask 1e](#subtask-1e)
-  - [Task 2](#task-2)
+  - [Task 2: Segmentation](#task-2-segmentation)
     - [Subtask 2a](#subtask-2a)
     - [Subtask 2b](#subtask-2b)
   - [Task 3](#task-3)
@@ -24,7 +22,7 @@ Header:
     - [Subtask 3b](#subtask-3b)
     - [Subtask 3c](#subtask-3c)
 
-## Task 1
+## Task 1: Theory
 
 ### Subtask 1a
 
@@ -64,7 +62,7 @@ This approach of double thresholding is more robust to changes in noise and in e
 
 ### Subtask 1e
 
-To perform the dilation of the given image by the given structiring element, we need to place the center of the structuring element $B$ over each `1` pixel in the image. Then, expand the `1` pixels based on the structuring element by setting the pixels above and below to `1` accordingly.
+To perform the dilation of the given image by the given structuring element, we need to place the center of the structuring element $B$ over each `1` pixel in the image. Then, expand the `1` pixels of the image $A$ based on the structuring element by setting the pixels above and below to `1` accordingly.
 
 We get the following image
 ```
@@ -80,7 +78,7 @@ We get the following image
 ![](img\dilated_image.png)
 
 
-## Task 2
+## Task 2: Segmentation
 
 ### Subtask 2a
 
