@@ -21,8 +21,46 @@ def region_growing(im: np.ndarray, seed_points: list, T: int) -> np.ndarray:
     # You can also define other helper functions
     segmented = np.zeros_like(im).astype(bool)
     im = im.astype(float)
+
+    # Checks if the neighbor is part of the segment or not
+    def segment_neighbor(x: int, y: int, p: float) -> bool:
+        if segmented[x, y]:
+            return False
+        if not segmented[x, y] and abs(p - im[x, y]) < T:
+            segmented[*neighbor] = True
+            return True
+        return False
+
+    
+    # Returns 8 neighbors clockwise from the top-center
+    def get_neighbors(x: int, y: int) -> np.ndarray:
+        neighbors = np.array([
+            [-1,  0],
+            [-1,  1],
+            [ 0,  1],
+            [ 1,  1],
+            [ 1,  0],
+            [ 1, -1],
+            [ 0, -1],
+            [-1, -1],
+        ])
+        return neighbors + np.array([[x, y]])
+
+
     for row, col in seed_points:
-        segmented[row, col] = True
+        # Setup active list and reference intensity
+        active = [[row, col]]
+        intensity = im[*active[0]]
+        while True:
+            seed = active.pop()
+            neighbors = get_neighbors(*seed)
+            for neighbor in neighbors:
+                if segment_neighbor(*neighbor, intensity):
+                    active.append(neighbor)
+            # Iterate until no more work is left
+            if len(active) == 0:
+                break
+
     return segmented
     ### END YOUR CODE HERE ###
 
