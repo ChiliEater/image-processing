@@ -3,6 +3,17 @@ import skimage
 import skimage.morphology as morph
 import numpy as np
 
+def create_circle_array(size):
+    arr = np.zeros((size, size))
+    y, x = np.ogrid[:size, :size]
+    center = size // 2
+    radius = size // 2
+    
+    mask = (x - center)**2 + (y - center)**2 <= radius**2
+    arr[mask] = 1
+    
+    return arr
+
 
 def remove_noise(im: np.ndarray) -> np.ndarray:
     """
@@ -14,10 +25,9 @@ def remove_noise(im: np.ndarray) -> np.ndarray:
     """
     # START YOUR CODE HERE ### (You can change anything inside this block)
     # You can also define other helper functions
-    for _ in range(8):
-        im = morph.binary_erosion(im)
-    for _ in range(16):
-        im = morph.binary_dilation(im)
+    footprint = create_circle_array(16)
+    im = morph.binary_closing(im, footprint=footprint)
+    im = morph.binary_opening(im, footprint=footprint)
     return im
     ### END YOUR CODE HERE ###
 

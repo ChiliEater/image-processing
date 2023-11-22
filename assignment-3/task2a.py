@@ -17,17 +17,21 @@ def otsu_thresholding(im: np.ndarray) -> int:
     assert im.dtype == np.uint8
     # START YOUR CODE HERE ### (You can change anything inside this block)
     # You can also define other helper functions
-    # Compute normalized histogram
-
+    
     # Similar to example on Wikipedia
-    def otsu_variance(image, threshold):
+    def otsu_intraclass_variance(image, threshold):
+        # Sum of all products
         return np.nansum([
-            np.mean(cls) * np.var(image, where=cls) for cls in [image >= threshold, image < threshold]
+            # Product of class mean and class variance
+            np.mean(cls) * np.var(image, where=cls) 
+            # Select all pixels above threshold then all pixels below threshold
+            for cls in [image >= threshold, image < threshold]
         ])
 
+    # Compute intraclass variance for all possible pixel values and extract minimum value
     return min(
         range(np.min(im) + 1, np.max(im)),
-        key = lambda th: otsu_variance(im, th)
+        key = lambda th: otsu_intraclass_variance(im, th)
     )
     ### END YOUR CODE HERE ###
 

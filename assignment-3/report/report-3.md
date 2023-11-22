@@ -21,6 +21,7 @@ Header:
     - [Subtask 3a](#subtask-3a)
     - [Subtask 3b](#subtask-3b)
     - [Subtask 3c](#subtask-3c)
+    - [Subtask 3d](#subtask-3d)
 
 ## Task 1: Theory
 
@@ -38,6 +39,7 @@ Dilation is applied first, which expands the boundaries of objects in the image.
 
 Successive closing operations tend to fill in smaller holes, bridges small gaps between objects, and merge closer objects. Each iteration tends to result in more significant connectivity between nearby structures.
 
+<div style="break-after:page"></div>
 
 ### Subtask 1b
 
@@ -86,9 +88,13 @@ We get the following image
 
 ![](../image_processed/thumbprint-segmented.png)
 
+<div style="break-after:page"></div>
+
 ### Subtask 2b
 
 ![](../image_processed/defective-weld-segmented.png)
+
+<div style="break-after:page"></div>
 
 ## Task 3
 
@@ -96,12 +102,26 @@ We get the following image
 
 ![](../image_processed/noisy-filtered.png)
 
+First, we created a function that generates a circular footprint/kernel based on a specified diameter. Then, we use this kernel for a closing operation followed by an opening operation.
+
+The goal of performing the closing operation first is to fill the holes in the main shape. It will not really affect the size of the outer shards, which are later eliminated by the opening operation. 
+
+We used a "big" kernel in order to remove all the noise in a single opening/closing sequence (this works because the kernel is bigger than half the size of the average noisy element).
+
+<div style="break-after:page"></div>
+
 ### Subtask 3b
 
-AAAAAAAAAAAAAa
+![](../image_processed/noisy-distance.png)
 
 ### Subtask 3c
 
-AAAAAAAAAAAAAa
+![](../image_processed/blood-vessels-boundary.png)
+
+<div style="break-after:page"></div>
+
+### Subtask 3d
+
+![](../image_processed/cards-filled.png)
 
 <div style="break-after:page"></div>

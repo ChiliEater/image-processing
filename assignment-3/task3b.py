@@ -1,6 +1,6 @@
 import utils
 import skimage
-import skimage.morphology
+import skimage.morphology as morph
 import numpy as np
 import pathlib
 
@@ -16,13 +16,19 @@ def distance_transform(im: np.ndarray) -> np.ndarray:
     """
     # START YOUR CODE HERE ### (You can change anything inside this block)
     # You can also define other helper functions
+    im = im.copy()
     assert im.dtype == bool
-    structuring_element = np.array([
+    kernel = np.array([
         [1, 1, 1],
         [1, 1, 1],
         [1, 1, 1]
     ], dtype=bool)
     result = im.astype(np.int32)
+    while True:
+        im = morph.binary_erosion(image=im, footprint=kernel)
+        result += im
+        if im.sum() == 0:
+            break
     return result
     ### END YOUR CODE HERE ###
 

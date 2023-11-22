@@ -1,6 +1,6 @@
 import utils
 import skimage
-import skimage.morphology
+import skimage.morphology as morph
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import io
@@ -27,8 +27,13 @@ def fill_holes(im: np.ndarray, starting_points: list, num_iterations: int) -> np
         [1, 1, 1],
         [1, 1, 1]
     ], dtype=bool)
-    result = im.copy()
-    return result
+
+    result = np.zeros_like(im)
+    for point in starting_points:
+        result[*point] = 1
+    for i in range(1, num_iterations):
+        result = morph.binary_dilation(result, structuring_element) & (~im)
+    return result | im
     ### END YOUR CODE HERE ###
 
 

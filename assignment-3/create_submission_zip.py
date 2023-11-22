@@ -22,11 +22,11 @@ def query(question, options):
 files_to_include = {
     "task2a": [".py"],
     "task2b": [".py"],
-    "task3a": [".py", ".ipynb"],
-    "task3b": [".py", ".ipynb"],
-    "task3c": [".py", ".ipynb"],
-    "task3d": [".py", ".ipynb"],
-    "utils": [".py"],
+    "task3a": [".py"],
+    "task3b": [".py"],
+    "task3c": [".py"],
+    "task3d": [".py"],
+    "utils":  [".py"],
 }
 zipfile_path = "assignment_code.zip"
 print("-"*80)
