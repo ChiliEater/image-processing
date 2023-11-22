@@ -82,11 +82,13 @@ We get the following image
 
 ### Subtask 2a
 
-AAAAAAAAAAAAAa
+![](../image_processed/rice-shaded-segmented.png)
+
+![](../image_processed/thumbprint-segmented.png)
 
 ### Subtask 2b
 
-AAAAAAAAAAAAAa
+![](../image_processed/defective-weld-segmented.png)
 
 ## Task 3
 
