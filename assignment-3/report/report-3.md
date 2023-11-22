@@ -94,7 +94,7 @@ We get the following image
 
 ### Subtask 3a
 
-AAAAAAAAAAAAAa
+![](../image_processed/noisy-filtered.png)
 
 ### Subtask 3b
 
